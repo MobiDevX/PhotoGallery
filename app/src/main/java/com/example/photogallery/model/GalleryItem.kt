@@ -1,4 +1,4 @@
-package com.example.photogallery
+package com.example.photogallery.model
 
 data class GalleryItem(
     var title: String = "",

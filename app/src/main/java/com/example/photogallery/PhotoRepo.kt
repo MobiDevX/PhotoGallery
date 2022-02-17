@@ -4,8 +4,9 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.photogallery.api.FlickrApi
-import com.example.photogallery.api.FlickrResponse
-import com.example.photogallery.api.PhotoResponse
+import com.example.photogallery.model.FlickrResponse
+import com.example.photogallery.model.PhotoResponse
+import com.example.photogallery.model.GalleryItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
