@@ -13,9 +13,9 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val TAG = "FlickrFetchr"
+private const val TAG = "PhotoRepo"
 
-class FlickrFetchr {
+class PhotoRepo {
 
     private val flickrApi: FlickrApi
 
