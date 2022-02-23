@@ -7,6 +7,8 @@ import com.example.photogallery.api.FlickrApi
 import com.example.photogallery.model.FlickrResponse
 import com.example.photogallery.model.PhotoResponse
 import com.example.photogallery.model.GalleryItem
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -16,7 +18,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 private const val TAG = "PhotoRepo"
 
 class PhotoRepo {
-
     private val flickrApi: FlickrApi
 
     init {
@@ -29,6 +30,7 @@ class PhotoRepo {
     }
 
     fun fetchPhotos(): LiveData<List<GalleryItem>> {
+
         val responseLiveData: MutableLiveData<List<GalleryItem>> = MutableLiveData()
         val flickrRequest: Call<FlickrResponse> = flickrApi.fetchPhotos()
 
@@ -42,8 +44,7 @@ class PhotoRepo {
                 Log.d(TAG, "Response received")
                 val flickrResponse: FlickrResponse? = response.body()
                 val photoResponse: PhotoResponse? = flickrResponse?.photos
-                var galleryItems: List<GalleryItem> = photoResponse?.galleryItems
-                    ?: mutableListOf()
+                var galleryItems: List<GalleryItem> = photoResponse?.galleryItems?: mutableListOf()
                 galleryItems = galleryItems.filterNot {
                     it.url_s.isBlank()
                 }
