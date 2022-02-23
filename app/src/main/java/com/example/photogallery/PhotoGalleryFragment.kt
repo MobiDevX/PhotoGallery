@@ -52,7 +52,6 @@ class PhotoGalleryFragment : Fragment() {
 
     private class PhotoHolder(itemTextView: TextView)
         : RecyclerView.ViewHolder(itemTextView) {
-
         val bindTitle: (CharSequence) -> Unit = itemTextView::setText
     }
 

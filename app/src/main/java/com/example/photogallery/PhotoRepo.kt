@@ -35,11 +35,9 @@ class PhotoRepo {
         val flickrRequest: Call<FlickrResponse> = flickrApi.fetchPhotos()
 
         flickrRequest.enqueue(object : Callback<FlickrResponse> {
-
             override fun onFailure(call: Call<FlickrResponse>, t: Throwable) {
                 Log.e(TAG, "Failed to fetch photos", t)
             }
-
             override fun onResponse(call: Call<FlickrResponse>, response: Response<FlickrResponse>) {
                 Log.d(TAG, "Response received")
                 val flickrResponse: FlickrResponse? = response.body()
@@ -51,7 +49,6 @@ class PhotoRepo {
                 responseLiveData.value = galleryItems
             }
         })
-
         return responseLiveData
     }
 }
