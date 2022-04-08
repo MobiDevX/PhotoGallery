@@ -13,7 +13,7 @@ class PhotoGalleryViewModel : ViewModel() {
     private val mutableSearchTerm = MutableLiveData<String>()
 
     init {
-        mutableSearchTerm.value = "flower"
+        mutableSearchTerm.value = "robocop"
         galleryItemLiveData = Transformations.switchMap(mutableSearchTerm) { searchTerm ->
             flickrFetchr.searchPhotos(searchTerm)
         }

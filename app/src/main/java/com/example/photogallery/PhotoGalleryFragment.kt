@@ -23,6 +23,8 @@ class PhotoGalleryFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setHasOptionsMenu(true)
+
         photoGalleryViewModel =
             ViewModelProvider(this).get(PhotoGalleryViewModel::class.java)
     }
@@ -56,7 +58,9 @@ class PhotoGalleryFragment : Fragment() {
 
         val searchItem: MenuItem = menu.findItem(R.id.menu_item_search)
         val searchView = searchItem.actionView as SearchView
+
         searchView.apply {
+
             setOnQueryTextListener(object : SearchView.OnQueryTextListener {
                 override fun onQueryTextSubmit(queryText: String): Boolean {
                     Log.d(TAG, "QueryTextSubmit: $queryText")
@@ -69,20 +73,6 @@ class PhotoGalleryFragment : Fragment() {
                     return false
                 }
             })
-/*
-            setOnSearchClickListener {
-                searchView.setQuery(photoGalleryViewModel.fetchPhotos()   .searchTerm, false)
-            }*/
-        }
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_item_clear -> {
-                photoGalleryViewModel.fetchPhotos()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
         }
     }
 
