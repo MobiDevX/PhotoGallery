@@ -9,6 +9,6 @@ class PhotoGalleryViewModel : ViewModel() {
     val galleryItemLiveData: LiveData<List<GalleryItem>>
 
     init {
-        galleryItemLiveData = PhotoRepo().fetchPhotos()
+        galleryItemLiveData = PhotoRepo().searchPhotos("robot")
     }
 }
