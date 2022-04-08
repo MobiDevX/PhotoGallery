@@ -1,5 +1,6 @@
 package com.example.photogallery.api
 
+import com.example.photogallery.model.FlickrResponse
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -9,5 +10,5 @@ interface FlickrApi {
             "&format=json" +
             "&nojsoncallback=1" +
             "&extras=url_s")
-    fun fetchPhotos(): Call<String>
+    fun fetchPhotos(): Call<FlickrResponse>
 }
