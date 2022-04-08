@@ -16,7 +16,6 @@ import com.squareup.picasso.Picasso
 private const val TAG = "PhotoGalleryFragment"
 
 class PhotoGalleryFragment : Fragment() {
-
     private lateinit var photoGalleryViewModel: PhotoGalleryViewModel
     private lateinit var photoRecyclerView: RecyclerView
 
@@ -47,7 +46,6 @@ class PhotoGalleryFragment : Fragment() {
         photoGalleryViewModel.galleryItemLiveData.observe(
             viewLifecycleOwner,
             Observer { galleryItems ->
-                //Log.d(TAG, "Have gallery items from view model $galleryItems")
                 photoRecyclerView.adapter = PhotoAdapter(galleryItems)
             })
     }
@@ -67,7 +65,6 @@ class PhotoGalleryFragment : Fragment() {
                     photoGalleryViewModel.fetchPhotos(queryText)
                     return true
                 }
-
                 override fun onQueryTextChange(queryText: String): Boolean {
                     Log.d(TAG, "QueryTextChange: $queryText")
                     return false

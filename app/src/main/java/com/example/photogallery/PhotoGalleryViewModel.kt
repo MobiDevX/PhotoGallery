@@ -4,16 +4,14 @@ import androidx.lifecycle.*
 import com.example.photogallery.model.GalleryItem
 
 class PhotoGalleryViewModel() : ViewModel() {
-
-    val galleryItemLiveData: LiveData<List<GalleryItem>>
     private val flickrFetchr = FlickrFetchr()
     private val mutableSearchTerm = MutableLiveData<String>()
-
+    val galleryItemLiveData: LiveData<List<GalleryItem>>
     val searchTerm: String
         get() = mutableSearchTerm.value ?: ""
 
     init {
-        mutableSearchTerm.value = ""
+        mutableSearchTerm.value = searchTerm
         galleryItemLiveData =
             Transformations.switchMap(mutableSearchTerm) { searchTerm ->
                 if (searchTerm.isBlank()) {

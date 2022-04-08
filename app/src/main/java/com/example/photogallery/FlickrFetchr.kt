@@ -35,7 +35,6 @@ class FlickrFetchr {
 
     private fun fetchPhotoMetadata(flickrRequest: Call<FlickrResponse>)
             : LiveData<List<GalleryItem>> {
-
         val responseLiveData: MutableLiveData<List<GalleryItem>> = MutableLiveData()
 
         flickrRequest.enqueue(object : Callback<FlickrResponse> {
