@@ -15,7 +15,8 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
- private const val TAG = "PhotoGalleryFragment"
+
+private const val TAG = "PhotoGalleryFragment"
 
 class PhotoGalleryFragment : Fragment() {
     private lateinit var photoRecyclerView: RecyclerView
