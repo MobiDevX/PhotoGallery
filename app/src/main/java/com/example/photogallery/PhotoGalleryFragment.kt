@@ -14,7 +14,6 @@ import com.example.photogallery.model.GalleryItem
 import com.squareup.picasso.Picasso
 
 private const val TAG = "PhotoGalleryFragment"
-
 class PhotoGalleryFragment : Fragment() {
     private lateinit var photoGalleryViewModel: PhotoGalleryViewModel
     private lateinit var photoRecyclerView: RecyclerView
