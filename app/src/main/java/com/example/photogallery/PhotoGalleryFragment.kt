@@ -10,7 +10,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.work.OneTimeWorkRequest
+import androidx.work.WorkManager
 import com.example.photogallery.model.GalleryItem
+import com.example.photogallery.worker.PollWorker
 import com.squareup.picasso.Picasso
 
 private const val TAG = "PhotoGalleryFragment"
@@ -25,6 +28,12 @@ class PhotoGalleryFragment : Fragment() {
 
         photoGalleryViewModel =
             ViewModelProvider(this).get(PhotoGalleryViewModel::class.java)
+
+        val workRequest = OneTimeWorkRequest
+            .Builder(PollWorker::class.java)
+            .build()
+        WorkManager.getInstance()
+            .enqueue(workRequest)
     }
 
     override fun onCreateView(
